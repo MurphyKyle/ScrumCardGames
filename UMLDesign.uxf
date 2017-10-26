@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>10</zoom_level>
+  <zoom_level>8</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>950</x>
-      <y>540</y>
-      <w>640</w>
-      <h>230</h>
+      <x>184</x>
+      <y>832</y>
+      <w>616</w>
+      <h>192</h>
     </coordinates>
     <panel_attributes>Player
 --
--name:string;
--playerWallet:wallet;
--playerDeck:cardCollection;
--isActive:bool;
+-name:string
+-playerWallet:Wallet
+-playerDeck: CardCollection
+-isActive: boolean
+-isHousePlayer : boolean
 --
-+Player(name:string, playerWallet:wallet, playerDeck:CardCollection, isActive:bool);
-+kickPlayerOut(isPlayerOut:bool):bool;
-+getters/Setters for everything;
++Player(name:string, playerWallet:wallet, playerDeck:CardCollection, isActive:bool)
++getters/Setters for everything
 
 </panel_attributes>
     <additional_attributes/>
@@ -26,37 +26,38 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>950</x>
-      <y>310</y>
-      <w>220</w>
-      <h>220</h>
+      <x>552</x>
+      <y>624</y>
+      <w>248</w>
+      <h>184</h>
     </coordinates>
     <panel_attributes>CardCollection
 --
--Collection:ObservableArrayList;
+-deck = List&lt;cards&gt;
 --
-+ToString():String;
-+DrawCard: Card;
-+ShuffleCards():void;
-+ResetDeck():void;
-</panel_attributes>
++CreateDeck() : List&lt;cards&gt;
++ToString():String
++DrawCard: Card
++ShuffleCards():void
++ResetDeck():void
++ClearCards() : void
++AddCards(cards: card[]) : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1190</x>
-      <y>270</y>
-      <w>230</w>
-      <h>190</h>
+      <x>552</x>
+      <y>448</y>
+      <w>248</w>
+      <h>152</h>
     </coordinates>
     <panel_attributes>Card
 --
--Suit: String;
--Value:String;
+-Suit: String
+-Value:String
 --
--Card(string suit, string value);
-+CreateACard():Card;
+-Card(string suit string value)
 +ToString():String;
 +getSuit():Suit;
 </panel_attributes>
@@ -65,32 +66,242 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>340</x>
-      <y>290</y>
-      <w>350</w>
-      <h>230</h>
+      <x>224</x>
+      <y>0</y>
+      <w>568</w>
+      <h>200</h>
     </coordinates>
-    <panel_attributes>House
+    <panel_attributes>GamePlayInterface
+-
+-moneyPool : int
+-players : player[]
+-roundCount : int
+-
++betMoney(money:int) : void
++winMoney() : int
++checkWin() : boolean
++playRound() : void
++KickPlayer(player : Player) : boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>856</x>
+      <y>744</y>
+      <w>448</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>Wallet
 --
+-money: int
+--
++Wallet(money:int) &lt;&lt;ctor&gt;&gt;
++sendMoney(money:int):int
++receiveMoney(money:int): money
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1430</x>
-      <y>210</y>
-      <w>230</w>
-      <h>220</h>
+      <x>1120</x>
+      <y>912</y>
+      <w>184</w>
+      <h>192</h>
     </coordinates>
-    <panel_attributes>Waller
---
--Money: int
---
-+Bank(money:int);
-+giveMoney():int;
-+getMmoney(money:int): money;
+    <panel_attributes>HouseDealer
+-
+deck : CardCollection
+-
 </panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>848</x>
+      <y>536</y>
+      <w>568</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>Controller
+-
+-game : Game
+-
+-promptForNumOfPlayers() : int
+-promptForHousePlayer() : boolean
+-promptForPlayerNames() : void
+-promptForPlayAgain() : boolean
+-declareWinner(player : Player) : void
+-declarePlayerKick(player : Player) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>592</x>
+      <y>232</y>
+      <w>200</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>GoFish
+-
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>944</x>
+      <y>0</y>
+      <w>192</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>Blackjack
+-
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>224</x>
+      <y>232</y>
+      <w>264</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>War
+-
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>848</x>
+      <y>232</y>
+      <w>192</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>Poker
+-
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>784</x>
+      <y>8</y>
+      <w>176</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+</panel_attributes>
+    <additional_attributes>10.0;30.0;200.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>192</y>
+      <w>64</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+</panel_attributes>
+    <additional_attributes>60.0;10.0;60.0;110.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>176</x>
+      <y>448</y>
+      <w>160</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>CardSuit &lt;&lt;enum&gt;&gt;
+-
+DIAMOND,
+SPADE,
+HEART,
+CLUB</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>344</x>
+      <y>448</y>
+      <w>192</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>CardValue &lt;&lt;enum&gt;&gt;
+-
+ACE(1),
+TWO(2),
+THREE(3),
+FOUR(4),
+FIVE(5),
+SIX(6),
+SEVEN(7),
+EIGHT(8),
+NINE(9),
+TEN(10),
+JACK(11),
+QUEEN(12),
+KING(13)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>832</x>
+      <y>912</y>
+      <w>264</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>ComputerPlayer
+-
+
+-
+-PLAY LOGIC BASED ON GAME</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>688</x>
+      <y>1016</y>
+      <w>160</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;180.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>552</x>
+      <y>192</y>
+      <w>56</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0;50.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>784</x>
+      <y>152</y>
+      <w>96</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+</panel_attributes>
+    <additional_attributes>10.0;30.0;100.0;30.0;100.0;100.0</additional_attributes>
   </element>
 </diagram>
