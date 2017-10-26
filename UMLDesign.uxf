@@ -57,7 +57,7 @@
 -Suit: String
 -Value:String
 --
--Card(string suit string value)
++Card(string suit string value) &lt;&lt;ctor&gt;&gt;
 +ToString():String;
 +getSuit():Suit;
 </panel_attributes>
@@ -71,7 +71,7 @@
       <w>568</w>
       <h>200</h>
     </coordinates>
-    <panel_attributes>GamePlayInterface
+    <panel_attributes>IGameLogic
 -
 -moneyPool : int
 -players : player[]
@@ -127,7 +127,7 @@ deck : CardCollection
     </coordinates>
     <panel_attributes>Controller
 -
--game : Game
+-game : IGameLogic
 -
 -promptForNumOfPlayers() : int
 -promptForHousePlayer() : boolean
