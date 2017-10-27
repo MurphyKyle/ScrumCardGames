@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Blackjack.cs" />
+    <Compile Include="Models\Card.cs" />
     <Compile Include="Models\CardCollection.cs" />
     <Compile Include="Models\GoFish.cs" />
     <Compile Include="Models\IGameLogic.cs" />
