@@ -8,7 +8,20 @@ namespace Group2_CardGames.Models
 {
     public class Player
     {
+        public Player(string name, Wallet playerWallet, bool isActive, bool isHousePlayer)
+        {
+            Name = name;
+            PlayerWallet = playerWallet;
+            this.isActive = isActive;
+            this.isHousePlayer = isHousePlayer;
+        }
+
         public string Name { get; set; }
-        public int MyProperty { get; set; }
+        public Wallet PlayerWallet { get; set; }
+        public bool isActive { get; set; }
+        public bool isHousePlayer { get; set; }
+
+        
+
     }
 }
