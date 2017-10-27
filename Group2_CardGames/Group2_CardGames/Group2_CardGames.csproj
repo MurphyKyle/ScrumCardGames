@@ -78,6 +78,7 @@
     <Compile Include="Models\IGameLogic.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Poker.cs" />
+    <Compile Include="Models\Wallet.cs" />
     <Compile Include="Models\War.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
