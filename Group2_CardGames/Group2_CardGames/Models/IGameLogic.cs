@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Group2_CardGames.Models
 {
 	public interface IGameLogic
 	{
+		void BetMoney(int betAmount);
+		int WinMoney();
+		bool CheckWin();
+		void PlayRound();
+		void KickPlayer(Player player);
 	}
 }
