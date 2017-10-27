@@ -24,5 +24,40 @@ namespace Group2_CardGames
 		{
 			InitializeComponent();
 		}
-	}
+
+        public void clicked_Open()
+        {
+
+        }
+        public void clicked_Close()
+        {
+
+        }
+
+        public void clicked_playBlackjack()
+        {
+                this.Close();
+                //open new xaml
+
+        }
+        public void clicked_playPoker()
+        {
+            this.Close();
+            //open new xaml
+        }
+        public void clicked_playGoFish()
+        {
+            this.Close();
+            //open new xaml
+        }
+        public void clicked_playWar()
+        {
+            this.Close();
+            //open new xaml
+        }
+
+
+
+
+    }
 }

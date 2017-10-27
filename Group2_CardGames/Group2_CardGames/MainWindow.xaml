@@ -7,6 +7,52 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Height" Value="75"/>
+                <Setter Property="Width" Value="150"/>
+            </Style>
+        </Grid.Resources>
+        <Menu Background="White"
+		VerticalAlignment="Top"
+		Grid.ColumnSpan="4"
+		FontSize="14"
+		Height="22"
+		Panel.ZIndex="10" Margin="0,0,0.334,0">
+            <!--<MenuItem Header="_File"-->
+			<!--Width="50">-->
+                <MenuItem Header="_Open"
+                Click="clicked_Open"/>
+                <!--<MenuItem Header="_Save"
+				Clicked="clicked_Save" />-->
+                <!--<MenuItem Header="Save_As..."
+				Click="clicked_SaveAs" />-->
+                <MenuItem Header="_Close"
+				Click="clicked_Close"/>
+            <!--</MenuItem>--> 
+        </Menu>
+        <Button Content="Blackjack"
+                Grid.Row="0"
+                Click="clicked_playBlackjack"/>
+        <Button Content="Poker"
+                Grid.Row="0"
+                Grid.Column="1"
+                Click="clicked_playPoker"/>
+        <Button Content="Go Fish"
+                Grid.Row="1"
+                Grid.Column="1"
+                Click="clicked_playGoFish"/>
+        <Button Content="War"
+                Grid.Row="1"
+                Grid.Column="0"
+                Click="clicked_playWar"/>
     </Grid>
 </Window>
