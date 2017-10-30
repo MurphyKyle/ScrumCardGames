@@ -30,29 +30,29 @@
             <!--<MenuItem Header="_File"-->
 			<!--Width="50">-->
                 <MenuItem Header="_Open"
-                Click="clicked_Open"/>
+                Click="Clicked_Open"/>
                 <!--<MenuItem Header="_Save"
-				Clicked="clicked_Save" />-->
+				Clicked="Clicked_Save" />-->
                 <!--<MenuItem Header="Save_As..."
-				Click="clicked_SaveAs" />-->
+				Click="Clicked_SaveAs" />-->
                 <MenuItem Header="_Close"
-				Click="clicked_Close"/>
+				Click="Clicked_Close"/>
             <!--</MenuItem>--> 
         </Menu>
         <Button Content="Blackjack"
                 Grid.Row="0"
-                Click="clicked_playBlackjack"/>
+                Click="Clicked_playBlackjack"/>
         <Button Content="Poker"
                 Grid.Row="0"
                 Grid.Column="1"
-                Click="clicked_playPoker"/>
+                Click="Clicked_playPoker"/>
         <Button Content="Go Fish"
                 Grid.Row="1"
                 Grid.Column="1"
-                Click="clicked_playGoFish"/>
+                Click="Clicked_playGoFish"/>
         <Button Content="War"
                 Grid.Row="1"
                 Grid.Column="0"
-                Click="clicked_playWar"/>
+                Click="Clicked_playWar"/>
     </Grid>
 </Window>
