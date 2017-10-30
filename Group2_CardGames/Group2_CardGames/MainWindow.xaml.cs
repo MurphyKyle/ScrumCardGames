@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Group2_CardGames.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,39 +26,38 @@ namespace Group2_CardGames
 			InitializeComponent();
 		}
 
-        public void clicked_Open()
+
+        public void clicked_Open(object sender, RoutedEventArgs e)
         {
 
         }
-        public void clicked_Close()
+        public void clicked_Close(object sender, RoutedEventArgs e)
         {
 
         }
 
-        public void clicked_playBlackjack()
+        public void clicked_playBlackjack(object sender, RoutedEventArgs e)
         {
                 this.Close();
                 //open new xaml
 
         }
-        public void clicked_playPoker()
+        public void clicked_playPoker(object sender, RoutedEventArgs e)
         {
             this.Close();
             //open new xaml
         }
-        public void clicked_playGoFish()
+        public void clicked_playGoFish(object sender, RoutedEventArgs e)
+        {
+            GoFishWindow gfw = new GoFishWindow();
+            this.Close();
+            gfw.Show();
+            //open new xaml
+        }
+        public void clicked_playWar(object sender, RoutedEventArgs e)
         {
             this.Close();
             //open new xaml
         }
-        public void clicked_playWar()
-        {
-            this.Close();
-            //open new xaml
-        }
-
-
-
-
     }
 }

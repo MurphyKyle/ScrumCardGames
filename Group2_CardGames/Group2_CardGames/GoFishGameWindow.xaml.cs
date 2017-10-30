@@ -1,5 +1,4 @@
-﻿@@ -0,0 +1,82 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +22,7 @@ namespace Group2_CardGames
     /// Interaction logic for GoFishWindow.xaml
     /// </summary>
     /// 
-    public partial class GoFishWindow : INotifyPropertyChanged
+    public partial class GoFishWindow : Window, INotifyPropertyChanged
     {
         public int numOfPlayers;
         public Player[] playerArray;
