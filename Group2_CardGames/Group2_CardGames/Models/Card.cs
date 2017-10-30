@@ -12,6 +12,12 @@ namespace Group2_CardGames.Models
 		private CardSuit Suit { get; set; }
 		private CardValue Value { get; set; }
 
+		public Card(CardSuit suit, CardValue value)
+		{
+			this.Suit = suit;
+			this.Value = value;
+		}
+
 		public Card(string value, string suit)
 		{
 			CardSuit s;

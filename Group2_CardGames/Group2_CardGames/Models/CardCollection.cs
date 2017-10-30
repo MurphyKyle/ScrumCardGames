@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Group2_CardGames.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -9,11 +10,21 @@ namespace Group2_CardGames.Models
 {
     public class CardCollection
     {
-		public List<Card> Cards { get; set; }
-		
+		public List<Card> Cards { get; set; } = new List<Card>();
+
+		public CardCollection()
+		{
+			foreach (CardSuit suit in Enum.GetValues(typeof(CardSuit)))
+			{
+				foreach (CardValue value in Enum.GetValues(typeof(CardValue)))
+				{
+					Cards.Add(new Card(suit, value));
+				}
+			}
+		}
+
 		public CardCollection(Card[] c)
 		{
-			Cards = new List<Card>();
 			Cards.AddRange(c);
 		}
 
