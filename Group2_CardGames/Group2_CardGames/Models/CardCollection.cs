@@ -47,10 +47,50 @@ namespace Group2_CardGames.Models
 			}
 			Cards = output;
 		}
-
-
-	
-		 
 		
+		public void DrawCard(ref CardCollection c)
+		{
+			if (c == null)
+			{
+				throw new ArgumentNullException(nameof(c) + "Where be the cards?!");
+			}
+
+			AddCard(c.Cards[0]);
+			c.Cards.RemoveAt(0);
+		}
+
+		public void ResetDeck()
+		{
+			CardCollection c = new CardCollection();
+			this.Cards = c.Cards;
+		}
+
+		public void ClearCards()
+		{
+			this.Cards.Clear();
+		}
+
+		public void AddCards(Card[] c)
+		{
+			this.Cards.AddRange(c);
+		}
+
+		public void AddCard(Card c)
+		{
+			this.Cards.Add(c);
+		}
+
+		public override string ToString()
+		{
+			string s = "";
+			foreach(Card c in Cards)
+			{
+				s += c.ToString() + " "; 
+			}
+			return s;
+		}
+
+
+
 	}
 }
