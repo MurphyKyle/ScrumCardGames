@@ -25,6 +25,7 @@ namespace Group2_CardGames
 		public WarWindow(Player p1, Player p2)
 		{
 			InitializeComponent();
+			warGame.SetPlayers(p1, p2);
 			Player1NameBox.Text = p1.Name;
 			Player2NameBox.Text = p2.Name;
 		}

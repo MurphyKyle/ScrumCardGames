@@ -10,6 +10,17 @@ namespace Group2_CardGames.Models
 	{
 		//players, moneyPool, roundCount
 
+		public War()
+		{
+			Players = new Player[2];
+		}
+
+		public void SetPlayers(Player p1, Player p2)
+		{
+			Players[0] = p1;
+			Players[1] = p2;
+		}
+
 		/// <summary>
 		/// Not implemented as there is no betting in War
 		/// </summary>f
@@ -21,13 +32,27 @@ namespace Group2_CardGames.Models
 
 		public bool CheckWin()
 		{
-			throw new NotImplementedException();
+			bool winner = false;
+
+			// if player1's card count is less than four
+			if (Players[0].PlayerDeck.Cards.Count() < 4)
+			{
+				// player2 wins;
+				winner = true;				
+			}
+			else if (Players[1].PlayerDeck.Cards.Count() < 4)
+			{
+				// player2 wins;
+				winner = true;
+			}
+			return winner;
 		}
 
 		public void KickPlayer(Player player)
 		{
 			throw new NotImplementedException();
 		}
+
 
 		public void PlayRound()
 		{
