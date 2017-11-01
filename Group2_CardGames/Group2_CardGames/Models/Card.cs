@@ -45,9 +45,14 @@ namespace Group2_CardGames.Models
 			return Suit.ToString() + Value.ToString();
 		}
 
-		public CardSuit GetSuit()
-		{
-			return Suit;
-		}
+        public CardSuit GetSuit()
+        {
+            return Suit;
+
+        }
+        public CardValue getValue()
+        {
+            return Value;
+        }
 	}
 }

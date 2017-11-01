@@ -30,19 +30,22 @@ namespace Group2_CardGames.Models
 			throw new NotImplementedException();
 		}
 
-		public bool CheckWin()
+		public bool CheckWin(out bool p1Win)
 		{
+            p1Win = false;
 			bool winner = false;
 
 			// if player1's card count is less than four
 			if (Players[0].PlayerDeck.Cards.Count() < 4)
 			{
-				// player2 wins;
+                // player2 wins;
+                p1Win = false;
 				winner = true;				
 			}
 			else if (Players[1].PlayerDeck.Cards.Count() < 4)
 			{
-				// player2 wins;
+                // player1 wins;
+                p1Win = true;
 				winner = true;
 			}
 			return winner;
@@ -54,9 +57,40 @@ namespace Group2_CardGames.Models
 		}
 
 
-		public void PlayRound()
+		public Card[] PlayRound()
 		{
-			throw new NotImplementedException();
+            List<Card> cards = new List<Card>();
+            Boolean whileTrue = true;
+
+            do
+            {
+                Card c1 = Players[0].PlayerDeck.DrawSingleCard();
+                Card c2 = Players[1].PlayerDeck.DrawSingleCard();
+
+                cards.Add(c1);
+                cards.Add(c2);
+
+                Enums.CardValue cv1 = c1.getValue();
+                Enums.CardValue cv2 = c2.getValue();
+
+                int s1 = int.Parse(cv1.ToString());
+                int s2 = int.Parse(cv2.ToString());
+
+                if (s1 > s2)
+                {
+                    Players[0].PlayerDeck.AddCards(cards);
+                    whileTrue = false;
+                }
+                else if (s2 > s1)
+                {
+                    Players[1].PlayerDeck.AddCards(cards);
+                    whileTrue = false;
+                }
+            } while (whileTrue);
+
+            Card[] toPrint = { cards.Last(), cards[cards.Count - 1] };
+
+            return toPrint;
 		}
 
 		/// <summary>
@@ -67,5 +101,30 @@ namespace Group2_CardGames.Models
 		{
 			throw new NotImplementedException();
 		}
-	}
+
+        void IGameLogic.BetMoney(int betAmount)
+        {
+            throw new NotImplementedException();
+        }
+
+        int IGameLogic.WinMoney()
+        {
+            throw new NotImplementedException();
+        }
+
+        bool IGameLogic.CheckWin()
+        {
+            throw new NotImplementedException();
+        }
+
+        void IGameLogic.PlayRound()
+        {
+            throw new NotImplementedException();
+        }
+
+        void IGameLogic.KickPlayer(Player player)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

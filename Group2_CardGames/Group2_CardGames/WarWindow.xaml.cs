@@ -30,12 +30,45 @@ namespace Group2_CardGames
 			Player2NameBox.Text = p2.Name;
 		}
 
-		//private void Settings_PlayersUpdatedEvent(object sender, EventArgs e)
-		//{
-		//	Player p1 = new Player(((List<string>)sender)[0], null, new CardCollection(), true, false);
+        private void NextTurn_Clicked(object sender, RoutedEventArgs e)
+        {
+            Card[] cards = warGame.PlayRound();
 
-		//	Player p2 = new Player(((List<string>)sender)[1], null, new CardCollection(), true, false);
+            p1_Card.Content = cards[0].ToString();
+            P1Left.Content = warGame.Players[0].PlayerDeck.Cards.Count();
 
-		//}
-	}
+            p2_Card.Content = cards[1].ToString();
+            P2Left.Content = warGame.Players[1].PlayerDeck.Cards.Count();
+
+            if (warGame.CheckWin(out bool p1Win))
+            {
+                if (p1Win)
+                {
+                    MessageBox.Show($"congratulations {Player1NameBox} on a job well done", "Winner Winner Chicken Dinner", MessageBoxButton.OK);
+                    
+                }
+                else
+                {
+                    MessageBox.Show($"congratulations {Player2NameBox} on a job well done", "Winner Winner Chicken Dinner", MessageBoxButton.OK);
+                }
+                Hide();
+                Owner.Show();
+            }
+        }
+
+        private void Clicked_Close(object sender, RoutedEventArgs e)
+        {
+            Hide();
+            Owner.Show();
+        }
+
+
+        //private void Settings_PlayersUpdatedEvent(object sender, EventArgs e)
+        //{
+        //	Player p1 = new Player(((List<string>)sender)[0], null, new CardCollection(), true, false);
+
+        //	Player p2 = new Player(((List<string>)sender)[1], null, new CardCollection(), true, false);
+
+        //}
+    }
 }

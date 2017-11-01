@@ -77,9 +77,9 @@ namespace Group2_CardGames
 			List<string> list = (List<string>)sender;
 
 			// create the newly defined players
-			Player p1 = new Player(list[0], null, new CardCollection(), true, false);
+			Player p1 = new Player(list[0], null, new CardCollection(), true, false, 0);
 
-			Player p2 = new Player(list[1], null, new CardCollection(), true, false);
+			Player p2 = new Player(list[1], null, new CardCollection(), true, false, 0);
 
 			// start war!
 			WarWindow war = new WarWindow(p1, p2);
