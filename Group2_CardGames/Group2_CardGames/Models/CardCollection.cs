@@ -92,6 +92,11 @@ namespace Group2_CardGames.Models
 			this.Cards.AddRange(c);
 		}
 
+		public void AddCards(CardCollection cards)
+		{
+			Cards.AddRange(cards.Cards);
+		}
+
 		public void AddCards(List<Card> cards)
 		{
 			Cards.AddRange(cards);

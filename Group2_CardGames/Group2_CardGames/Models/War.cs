@@ -70,11 +70,11 @@ namespace Group2_CardGames.Models
                 cards.Add(c1);
                 cards.Add(c2);
 
-                Enums.CardValue cv1 = c1.getValue();
-                Enums.CardValue cv2 = c2.getValue();
+                Enums.CardValue cv1 = c1.GetValue();
+                Enums.CardValue cv2 = c2.GetValue();
 
-                int s1 = int.Parse(cv1.ToString());
-                int s2 = int.Parse(cv2.ToString());
+				int s1 = (int)cv1;
+				int s2 = (int)cv2;
 
                 if (s1 > s2)
                 {
@@ -92,6 +92,8 @@ namespace Group2_CardGames.Models
 
             return toPrint;
 		}
+
+
 
 		/// <summary>
 		/// Not implemented as there is no betting in War

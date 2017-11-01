@@ -42,7 +42,7 @@ namespace Group2_CardGames.Models
 
 		public override string ToString()
 		{
-			return Suit.ToString() + Value.ToString();
+			return $"{Value.ToString()}\nOf\n{Suit.ToString()}";
 		}
 
         public CardSuit GetSuit()
@@ -50,7 +50,7 @@ namespace Group2_CardGames.Models
             return Suit;
 
         }
-        public CardValue getValue()
+        public CardValue GetValue()
         {
             return Value;
         }

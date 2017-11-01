@@ -8,9 +8,9 @@ namespace Group2_CardGames.Enums
 {
 	public enum CardSuit
 	{
-        DIAMOND,
-        SPADE,
-        HEART,
-        CLUB
+        DIAMONDS,
+        SPADES,
+        HEARTS,
+        CLUBS
 	}
 }

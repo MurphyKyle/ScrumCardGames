@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Group2_CardGames"
         mc:Ignorable="d"
-        Title="Game of WAR" Height="520" Width="499">
+        Title="Game of WAR" Height="520" Width="505">
 
     <Border BorderBrush="Black"
 			BorderThickness="1"
@@ -29,18 +29,19 @@
                 </Style>
             </StackPanel.Resources>
             <Menu Background="White"
-		VerticalAlignment="Top"
-		Grid.ColumnSpan="4"
-		FontSize="14"
-		Height="22"
-		Panel.ZIndex="10" Margin="0,0,0.334,0">
-                <!--<MenuItem Header="_File"-->
-                <!--Width="50">-->
-                <!--<MenuItem Header="_Open"-->
-                <!--Click="Clicked_Open"/>-->
-                <!--<MenuItem Header="_Save"
-				Clicked="Clicked_Save" />-->
-                <!--<MenuItem Header="Save_As..."
+					VerticalAlignment="Top"
+					Grid.ColumnSpan="4"
+					FontSize="14"
+					Height="22"
+					Panel.ZIndex="10" 
+				  Margin="0,0,0,0">
+                <!--<MenuItem Header="_File"
+                Width="50">
+                <MenuItem Header="_Open"
+                Click="Clicked_Open"/>
+                <MenuItem Header="_Save"
+				Clicked="Clicked_Save" />
+                <MenuItem Header="Save_As..."
 				Click="Clicked_SaveAs" />-->
                 <MenuItem Header="_Close"
 				Click="Clicked_Close"/>
@@ -50,9 +51,10 @@
             <Grid x:Name="Player1Panel"
 						Background="LightGray"
 						Style="{StaticResource PlayerStyle}">
+				
                 <TextBox x:Name="Player1NameBox" 
 						 Text="Player 1" 
-						 Margin="52,10,340,110"/>
+						 Margin="50,10,320,110"/>
                 <Label Content="Cards Left:"
                        FontSize="20"
                        HorizontalAlignment="Left" 
@@ -67,7 +69,7 @@
                             Width="75"
                             Height="75" 
                             Background="Crimson"
-                            Margin="337,29,80,46"
+							Click="NextTurn_Clicked" Margin="300,29,90,46"
                             />
 
             </Grid>
@@ -78,24 +80,33 @@
                 <Grid x:Name="CenterPanel"
 							Style="{StaticResource PanelStyle}">
 
-                    <Label Content="Card"
-                           Name="p1_Card"
-                            Width="60" 
-                            Height="80"
-                            BorderBrush="Black"
-                            BorderThickness="2" Margin="152,46,277,41"
-                            />
+					<StackPanel Orientation="Horizontal"
+								Margin="75 0 0 0">
+						<Label Content="Card"
+							   Name="p1_Card"
+								Width="100" 
+								Height="80"
+								BorderBrush="Black"
+							   FontSize="14"
+								BorderThickness="2" 
+							    HorizontalContentAlignment="Center"
+							   VerticalContentAlignment="Center"
+						    
+								/>
 
-                    <Label Content="Card"
-                            Name="p2_Card"
-                            Width="60" 
-                            Height="80"
-                            BorderBrush="Black"
-                            BorderThickness="2" Margin="276,46,153,41"
-                            />
-
-
-                </Grid>
+						<Label Content="Card"
+							   Margin="140 0 0 0"
+								Name="p2_Card"
+								Width="100" 
+								Height="80"
+							   FontSize="14"
+								BorderBrush="Black"						
+								BorderThickness="2" 	
+							   HorizontalContentAlignment="Center"
+							   VerticalContentAlignment="Center"
+								/>
+					</StackPanel>
+				</Grid>
             </Border>
 
             <!--Panel for Player1's data-->
@@ -104,7 +115,7 @@
 					Style="{StaticResource PlayerStyle}">
                 <TextBox x:Name="Player2NameBox" 
 						 Text="Player 2" 
-						Margin="310,10,82,110"/>
+						Margin="300,10,82,110"/>
 
 
                 <Label Content="Cards Left:"
@@ -122,7 +133,7 @@
                             Width="75"
                             Height="75" 
                             Background="Crimson"
-                            Margin="76,38,340,38"
+                            Margin="70,38,330,38"
                             />
             </Grid>
 

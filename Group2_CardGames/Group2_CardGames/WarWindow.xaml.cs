@@ -28,6 +28,11 @@ namespace Group2_CardGames
 			warGame.SetPlayers(p1, p2);
 			Player1NameBox.Text = p1.Name;
 			Player2NameBox.Text = p2.Name;
+			CardCollection deck = new CardCollection(true);
+			p1.PlayerDeck.AddCards(deck.DrawCards(26));           
+			p2.PlayerDeck.AddCards(deck.DrawCards(26));
+			P2Left.Content = warGame.Players[1].PlayerDeck.Cards.Count();
+			P1Left.Content = warGame.Players[0].PlayerDeck.Cards.Count();
 		}
 
         private void NextTurn_Clicked(object sender, RoutedEventArgs e)
@@ -63,12 +68,15 @@ namespace Group2_CardGames
         }
 
 
-        //private void Settings_PlayersUpdatedEvent(object sender, EventArgs e)
-        //{
-        //	Player p1 = new Player(((List<string>)sender)[0], null, new CardCollection(), true, false);
+		/// <summary>
+		/// Help end application explicitly
+		/// </summary>
+		/// <param name="e">Event details</param>
+		protected override void OnClosed(EventArgs e)
+		{
+			base.OnClosed(e);
 
-        //	Player p2 = new Player(((List<string>)sender)[1], null, new CardCollection(), true, false);
-
-        //}
-    }
+			Application.Current.Shutdown();
+		}
+	}
 }

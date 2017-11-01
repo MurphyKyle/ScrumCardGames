@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Group2_CardGames.Enums;
 
 namespace Group2_CardGames
 {
@@ -24,12 +25,11 @@ namespace Group2_CardGames
 		public MainWindow()
 		{
 			InitializeComponent();
-			WindowStartupLocation = WindowStartupLocation.CenterScreen;			
-
+			WindowStartupLocation = WindowStartupLocation.CenterScreen;
 		}
 
 
-        public void Clicked_Open(object sender, RoutedEventArgs e)
+		public void Clicked_Open(object sender, RoutedEventArgs e)
         {
 
         }
