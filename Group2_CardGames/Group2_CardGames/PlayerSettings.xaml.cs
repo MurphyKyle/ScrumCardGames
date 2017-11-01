@@ -67,6 +67,8 @@ namespace Group2_CardGames
 			playerNames.Add(txtPlayer4.Text);
 
 			PlayersUpdatedEvent.Invoke(playerNames, e);
+			Hide();
+			Owner.Show();
 		}
 
 		/// <summary>

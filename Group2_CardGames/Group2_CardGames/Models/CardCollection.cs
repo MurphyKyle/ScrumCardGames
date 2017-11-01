@@ -8,18 +8,16 @@ using System.Threading.Tasks;
 
 namespace Group2_CardGames.Models
 {
-    public class CardCollection
-    {
+	public class CardCollection
+	{
 		public List<Card> Cards { get; set; } = new List<Card>();
 
-		public CardCollection()
+		public CardCollection(bool createDeck = false)
 		{
-			foreach (CardSuit suit in Enum.GetValues(typeof(CardSuit)))
+			if (createDeck)
 			{
-				foreach (CardValue value in Enum.GetValues(typeof(CardValue)))
-				{
-					Cards.Add(new Card(suit, value));
-				}
+				ResetDeck();
+
 			}
 		}
 
@@ -47,7 +45,7 @@ namespace Group2_CardGames.Models
 			}
 			Cards = output;
 		}
-		
+
 		public void DrawCard(ref CardCollection c)
 		{
 			if (c == null)
@@ -59,10 +57,29 @@ namespace Group2_CardGames.Models
 			c.Cards.RemoveAt(0);
 		}
 
+		public Card DrawSingleCard()
+		{
+			Card c = Cards[0];
+			Cards.RemoveAt(0);
+			return c;
+		}
+
+		public CardCollection DrawCards(int numOfCards)
+		{
+			CardCollection cards = new CardCollection();
+
+			for (int i = 0; i < numOfCards; i++)
+			{
+				cards.AddCard(DrawSingleCard());
+			}
+
+			return cards;
+		}
+
 		public void ResetDeck()
 		{
-			CardCollection c = new CardCollection();
-			this.Cards = c.Cards;
+			BuildNewDeck();
+			Shuffle();
 		}
 
 		public void ClearCards()
@@ -75,22 +92,38 @@ namespace Group2_CardGames.Models
 			this.Cards.AddRange(c);
 		}
 
+		public void AddCards(List<Card> cards)
+		{
+			Cards.AddRange(cards);
+		}
+
 		public void AddCard(Card c)
 		{
 			this.Cards.Add(c);
 		}
 
+		private void BuildNewDeck()
+		{
+			Cards.Clear();
+
+			foreach (CardSuit suit in Enum.GetValues(typeof(CardSuit)))
+			{
+				foreach (CardValue value in Enum.GetValues(typeof(CardValue)))
+				{
+					Cards.Add(new Card(suit, value));
+				}
+			}
+		}
+
 		public override string ToString()
 		{
 			string s = "";
-			foreach(Card c in Cards)
+			foreach (Card c in Cards)
 			{
-				s += c.ToString() + " "; 
+				s += c.ToString() + " ";
 			}
 			return s;
 		}
-
-
-
 	}
 }
+		 

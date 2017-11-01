@@ -8,6 +8,12 @@ namespace Group2_CardGames.Models
 {
 	public class War : GameBase, IGameLogic
 	{
+		//players, moneyPool, roundCount
+
+		/// <summary>
+		/// Not implemented as there is no betting in War
+		/// </summary>f
+		/// <param name="betAmount"></param>
 		public void BetMoney(int betAmount)
 		{
 			throw new NotImplementedException();
@@ -28,6 +34,10 @@ namespace Group2_CardGames.Models
 			throw new NotImplementedException();
 		}
 
+		/// <summary>
+		/// Not implemented as there is no betting in War
+		/// </summary>
+		/// <returns></returns>
 		public int WinMoney()
 		{
 			throw new NotImplementedException();

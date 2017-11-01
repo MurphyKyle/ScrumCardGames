@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace Group2_CardGames.Models
 {
+	/// <summary>
+	/// Contains three datamembers: Player[] players, int moneyPool, int roundCount
+	/// </summary>
 	public class GameBase
 	{
-		private Player[] players = new Player[4];
-		private int moneyPool = 0;
-		private int roundCount = 0;
+		public Player[] Players { get; set; } = new Player[4];
+		public int MoneyPool { get; set; }
+		public int RoundCount { get; set; }
 	}
 }

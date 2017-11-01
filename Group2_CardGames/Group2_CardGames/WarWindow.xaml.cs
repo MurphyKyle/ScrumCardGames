@@ -20,21 +20,21 @@ namespace Group2_CardGames
 	/// </summary>
 	public partial class WarWindow : Window
 	{
-		private War warGame = new War();
+		private War warGame = new War();		
 		
-		public WarWindow()
+		public WarWindow(Player p1, Player p2)
 		{
 			InitializeComponent();
+			Player1NameBox.Text = p1.Name;
+			Player2NameBox.Text = p2.Name;
 		}
 
-		private void Player2NameBox_LostFocus(object sender, RoutedEventArgs e)
-		{
+		//private void Settings_PlayersUpdatedEvent(object sender, EventArgs e)
+		//{
+		//	Player p1 = new Player(((List<string>)sender)[0], null, new CardCollection(), true, false);
 
-		}
+		//	Player p2 = new Player(((List<string>)sender)[1], null, new CardCollection(), true, false);
 
-		private void Player1NameBox_LostFocus(object sender, RoutedEventArgs e)
-		{
-
-		}
+		//}
 	}
 }

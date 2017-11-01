@@ -32,7 +32,7 @@
 						Style="{StaticResource PlayerStyle}">
 				<TextBox x:Name="Player1NameBox" 
 						 Text="Player 1" 
-						 LostFocus="Player1NameBox_LostFocus"/>
+						 Margin="10,10,381.2,130"/>
 
 			</Grid>
 
@@ -52,7 +52,7 @@
 					Style="{StaticResource PlayerStyle}">
 				<TextBox x:Name="Player2NameBox" 
 						 Text="Player 2" 
-						 LostFocus="Player2NameBox_LostFocus"/>
+						Margin="10,10,381.2,130"/>
 			</Grid>
 
 		</StackPanel>

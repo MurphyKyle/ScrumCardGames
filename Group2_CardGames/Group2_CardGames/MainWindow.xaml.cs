@@ -64,13 +64,27 @@ namespace Group2_CardGames
         public void Clicked_playWar(object sender, RoutedEventArgs e)
         {
 			// get player data
-			PlayerSettings settings = new PlayerSettings(3);
+			PlayerSettings settings = new PlayerSettings(2);
+			settings.PlayersUpdatedEvent += Settings_PlayersUpdatedEvent;
 			SwitchWindows(settings);
-			// open new xaml
-			//WarWindow war = new WarWindow();
-			//SwitchWindows(war);
+			
 
-        }
+		}
+
+		private void Settings_PlayersUpdatedEvent(object sender, EventArgs e)
+		{
+			// cast our list
+			List<string> list = (List<string>)sender;
+
+			// create the newly defined players
+			Player p1 = new Player(list[0], null, new CardCollection(), true, false);
+
+			Player p2 = new Player(list[1], null, new CardCollection(), true, false);
+
+			// start war!
+			WarWindow war = new WarWindow(p1, p2);
+			SwitchWindows(war);
+		}
 
 		/// <summary>
 		/// Sets the Owner of the newWindow to "this" window and stands up the new window
