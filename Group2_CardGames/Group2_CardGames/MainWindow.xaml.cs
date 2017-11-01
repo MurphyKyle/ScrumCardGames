@@ -24,7 +24,8 @@ namespace Group2_CardGames
 		public MainWindow()
 		{
 			InitializeComponent();
-			WindowStartupLocation = WindowStartupLocation.CenterScreen;
+			WindowStartupLocation = WindowStartupLocation.CenterScreen;			
+
 		}
 
 
@@ -36,7 +37,6 @@ namespace Group2_CardGames
         {
 
         }
-
         public void Clicked_playBlackjack(object sender, RoutedEventArgs e)
         {
                 this.Close();
@@ -48,18 +48,34 @@ namespace Group2_CardGames
             this.Close();
             //open new xaml
         }
+
         public void Clicked_playGoFish(object sender, RoutedEventArgs e)
         {
             GoFishWindow gfw = new GoFishWindow();
 			SwitchWindows(gfw);
 			//open new xaml
 		}
+
+		/// <summary>
+		/// Creates a new WarGame window and stands it up for playing
+		/// </summary>
+		/// <param name="sender">Object that triggered the event</param>
+		/// <param name="e">Event details</param>
         public void Clicked_playWar(object sender, RoutedEventArgs e)
         {
-            this.Close();
-            //open new xaml
+			// get player data
+			PlayerSettings settings = new PlayerSettings(3);
+			SwitchWindows(settings);
+			// open new xaml
+			//WarWindow war = new WarWindow();
+			//SwitchWindows(war);
+
         }
 
+		/// <summary>
+		/// Sets the Owner of the newWindow to "this" window and stands up the new window
+		/// </summary>
+		/// <param name="newWindow">The new window to be displayed</param>
 		private void SwitchWindows(Window newWindow)
 		{
 			// maybe keep all of the windows we open, allowing users to go back to instances of the game.
@@ -70,6 +86,17 @@ namespace Group2_CardGames
 			Hide();
 			newWindow.Show();
 		}
-    }
+
+		/// <summary>
+		/// Help end application explicitly
+		/// </summary>
+		/// <param name="e">Event details</param>
+		protected override void OnClosed(EventArgs e)
+		{
+			base.OnClosed(e);
+
+			Application.Current.Shutdown();
+		}
+	}
 }
 
