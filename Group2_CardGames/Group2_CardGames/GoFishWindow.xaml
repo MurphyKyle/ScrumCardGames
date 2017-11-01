@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Group2_CardGames"
+        
         mc:Ignorable="d"
         Title="Go Fish" Height="500" Width="500">
 
@@ -42,29 +43,29 @@
                      Height="25"
                      VerticalAlignment="Top"
                      Width="80"
-                     Text="Player 1" Margin="10,21,202,0" Visibility="Visible"/>
+                     Text="Player 1" Margin="10,21,202,0" Visibility="Collapsed"/>
 			<TextBox x:Name="Player2NameTextBox" 
                      Grid.Row="3"
                      Height="25"
                      Width="80"
                      Text="Player 2"
                      Margin="10,18,202,24"
-                     Visibility="Visible"/>
+                     Visibility="Collapsed"/>
 			<TextBox x:Name="Player3NameTextBox" 
                      Grid.Row="2"
                      Height="25"
                      Width="80"
                      Text="Player 3"
                      Margin="302,20.8,111.6,71.8"
-                     Visibility="Visible"/>
+                     Visibility="Collapsed"/>
 			<TextBox x:Name="Player4NameTextBox" 
                      Grid.Row="3"
                      Height="25"
                      Width="80"
                      Text="Player 4"
                      Margin="202,18,10,24"
-                     Visibility="Visible"/>
-			<Button x:Name="EnterNameButton" Grid.Row="2" Width="65" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Center" Content="Enter" Click="EnterNameButton_Click"/>
+                     Visibility="Collapsed"/>
+			<Button x:Name="EnterNameButton" Grid.Row="2" Width="65" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Center" Content="Enter" Click="EnterNameButton_Click" Visibility="Collapsed"/>
 		</Grid>
 
 
@@ -89,28 +90,28 @@
 				<RowDefinition Height="*"/>
 				<RowDefinition Height="*"/>
 			</Grid.RowDefinitions>
-			<Label Grid.Column="1" Grid.Row="3" Content="{Binding Path= PlayerOneScore, Mode=TwoWay}" FontSize="10"/>
+			<Label x:Name="PlayerOneScoreText" Grid.Column="1" Grid.Row="3" Content="{Binding Path= Score, Mode=OneWay}" FontSize="10"/>
 			<Label Grid.Column="0" Grid.Row="1" Content="Player1Card" FontSize="10"/>
 			<Label Grid.Column="0" Grid.Row="2" Content="Player1Card" FontSize="10"/>
 			<Label Grid.Column="0" Grid.Row="3" Content="Player1Card" FontSize="10"/>
 			<Label Grid.Column="0" Grid.Row="4" Content="Player1Card" FontSize="10"/>
 			<Label Grid.Column="0" Grid.Row="5" Content="Player1Card" FontSize="10"/>
 
-			<Label Grid.Column="3" Grid.Row="5" Content="{Binding Path=PlayerTwoScore, Mode=TwoWay}" FontSize="10"/>
+			<Label Grid.Column="3" Grid.Row="5" Content="{Binding Path=PlayerTwoScore }" FontSize="10"/>
 			<Label Grid.Column="1" Grid.Row="6" Content="Player2Card" FontSize="10"/>
 			<Label Grid.Column="2" Grid.Row="6" Content="Player2Card" FontSize="10"/>
 			<Label Grid.Column="3" Grid.Row="6" Content="Player2Card" FontSize="10"/>
 			<Label Grid.Column="4" Grid.Row="6" Content="Player2Card" FontSize="10"/>
 			<Label Grid.Column="5" Grid.Row="6" Content="Player2Card" FontSize="10"/>
 
-			<Label Grid.Column="5" Grid.Row="3" Content="{Binding Path=PlayerThreeScore, Mode =TwoWay}" FontSize="10"/>
+			<Label Grid.Column="5" Grid.Row="3" Content="{Binding Path=PlayerThreeScore }" FontSize="10"/>
 			<Label Grid.Column="6" Grid.Row="1" Content="Player3Card" FontSize="10"/>
 			<Label Grid.Column="6" Grid.Row="2" Content="Player3Card" FontSize="10"/>
 			<Label Grid.Column="6" Grid.Row="3" Content="Player3Card" FontSize="10"/>
 			<Label Grid.Column="6" Grid.Row="4" Content="Player3Card" FontSize="10"/>
 			<Label Grid.Column="6" Grid.Row="5" Content="Player3Card" FontSize="10"/>
 
-			<Label Grid.Column="3" Grid.Row="1" Content="{Binding Path=PlayerFourScore,Mode=TwoWay}" FontSize="10"/>
+			<Label Grid.Column="3" Grid.Row="1" Content="{Binding Path=PlayerFourScore }" FontSize="10"/>
 			<Label Grid.Column="1" Grid.Row="0" Content="Player4Card" FontSize="10"/>
 			<Label Grid.Column="2" Grid.Row="0" Content="Player4Card" FontSize="10"/>
 			<Label Grid.Column="3" Grid.Row="0" Content="Player4Card" FontSize="10"/>

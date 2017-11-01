@@ -22,7 +22,7 @@ namespace Group2_CardGames
     /// Interaction logic for GoFishWindow.xaml
     /// </summary>
     /// 
-    public partial class GoFishWindow : Window, INotifyPropertyChanged
+    public partial class GoFishWindow : Window
     {
         public int numOfPlayers;
         public Player[] playerArray;
@@ -30,64 +30,13 @@ namespace Group2_CardGames
         public CardCollection cardCollection;
         public Wallet wallet = new Wallet(0);
 
-        private int playerOneScore;
-
-        public int PlayerOneScore
-        {
-            get { return playerOneScore; }
-            set
-            {
-                playerOneScore = value;
-                OnPropertyChanged();
-            }
-        }
-        private int playerTwoScore;
-
-        public int PlayerTwoScore
-        {
-            get { return playerTwoScore; }
-            set
-            {
-                playerTwoScore = value;
-                OnPropertyChanged();
-            }
-        }
-        private int playerThreeScore;
-
-        public int PlayerThreeScore
-        {
-            get { return playerThreeScore; }
-            set
-            {
-                playerThreeScore = value;
-                OnPropertyChanged();
-            }
-        }
-        private int playerFourScore;
-
-
-        public int PlayerFourScore
-        {
-            get { return playerFourScore; }
-            set
-            {
-                playerFourScore = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
+        public int PlayerOneScore { get; set; } = 3;
 
 
         public GoFishWindow()
         {
             InitializeComponent();
-
+         
 
         }
 
@@ -100,7 +49,8 @@ namespace Group2_CardGames
                     playerArray = new Player[2];
                     Player1NameTextBox.Visibility = Visibility.Visible;
                     Player2NameTextBox.Visibility = Visibility.Visible;
-                    break;
+                    EnterNameButton.Visibility = Visibility.Visible;
+                      break;
                 case 1:
                     numOfPlayers = 3;
                     playerArray = new Player[3];
@@ -108,6 +58,8 @@ namespace Group2_CardGames
                     Player1NameTextBox.Visibility = Visibility.Visible;
                     Player2NameTextBox.Visibility = Visibility.Visible;
                     Player3NameTextBox.Visibility = Visibility.Visible;
+                    EnterNameButton.Visibility = Visibility.Visible;
+
                     break;
                 case 2:
                     numOfPlayers = 4;
@@ -117,6 +69,8 @@ namespace Group2_CardGames
                     Player2NameTextBox.Visibility = Visibility.Visible;
                     Player3NameTextBox.Visibility = Visibility.Visible;
                     Player4NameTextBox.Visibility = Visibility.Visible;
+                    EnterNameButton.Visibility = Visibility.Visible;
+
                     break;
             }
         }
@@ -126,10 +80,30 @@ namespace Group2_CardGames
             switch (GoFishNumOfPlayerBox.SelectedIndex)
             {
                 case 0:
-                    numOfPlayers = 2;
-                    playerArray = new Player[2];
-
+                  
+                    playerArray[0] = new Player(Player1NameTextBox.Text, wallet, cardCollection, true, false, 0);
+                    playerArray[1] = new Player(Player2NameTextBox.Text, wallet, cardCollection, true, false, 0);
+                    NumberOfPlayersGrid.Visibility = Visibility.Collapsed;
+                    GoFishGameGrid.Visibility = Visibility.Visible;
                     break;
+                case 1:
+
+                    playerArray[0] = new Player(Player1NameTextBox.Text, wallet, cardCollection, true, false, 0);
+                    playerArray[1] = new Player(Player2NameTextBox.Text, wallet, cardCollection, true, false, 0);
+                    playerArray[2] = new Player(Player3NameTextBox.Text, wallet, cardCollection, true, false, 0);
+                    NumberOfPlayersGrid.Visibility = Visibility.Collapsed;
+                    GoFishGameGrid.Visibility = Visibility.Visible;
+                    break;
+                case 2:
+
+                    playerArray[0] = new Player(Player1NameTextBox.Text, wallet, cardCollection, true, false, 0);
+                    playerArray[1] = new Player(Player2NameTextBox.Text, wallet, cardCollection, true, false, 0);
+                    playerArray[2] = new Player(Player3NameTextBox.Text, wallet, cardCollection, true, false, 0);
+                    playerArray[3] = new Player(Player4NameTextBox.Text, wallet, cardCollection, true, false, 0);
+                    NumberOfPlayersGrid.Visibility = Visibility.Collapsed;
+                    GoFishGameGrid.Visibility = Visibility.Visible;
+                    break;
+
             }
 
 
@@ -141,5 +115,11 @@ namespace Group2_CardGames
 			Hide();
 			Owner.Visibility = Visibility.Visible;
 		}
-	}
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+
+            Application.Current.Shutdown();
+        }
+    }
 }
