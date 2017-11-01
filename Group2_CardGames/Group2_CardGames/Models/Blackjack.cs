@@ -8,6 +8,13 @@ namespace Group2_CardGames.Models
 {
 	public class Blackjack : GameBase, IGameLogic
 	{
+		List<Player> players;
+
+		public Blackjack()
+		{
+			players.Add(new Player("Dealer", 1000000000, new CardCollection));
+		}
+
 		public void BetMoney(int betAmount)
 		{
 			throw new NotImplementedException();
@@ -20,7 +27,7 @@ namespace Group2_CardGames.Models
 
 		public void KickPlayer(Player player)
 		{
-			throw new NotImplementedException();
+			players.Remove(player);
 		}
 
 		public void PlayRound()

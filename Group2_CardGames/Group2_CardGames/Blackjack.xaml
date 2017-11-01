@@ -1,0 +1,38 @@
+﻿<Window x:Class="Group2_CardGames.Blackjack"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Group2_CardGames"
+        mc:Ignorable="d"
+        Title="Blackjack" Height="300" Width="413.617">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Name="DealerCard" Grid.Row="1" Grid.Column="3"/>
+        <StackPanel Name="PlayerCards" Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="3">
+            
+        </StackPanel>
+        <Label Content="Dealer's Card" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Label Content="Player's Cards" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Button Name="Bet" Content="Bet" Grid.Column="0" Grid.Row="6" Margin="4" Click="Bet_Click"/>
+        <Button Name="Hit" Content="Hit" Grid.Column="1" Grid.Row="6" Margin="4" Click="Hit_Click"/>
+        <Button Name="Stand" Content="Stand" Grid.Column="2" Grid.Row="6" Margin="4" Click="Stand_Click"/>
+    </Grid>
+</Window>
