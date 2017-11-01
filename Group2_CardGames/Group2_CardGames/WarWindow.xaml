@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Group2_CardGames"
         mc:Ignorable="d"
-        Title="Game of WAR" Height="503" Width="499">
+        Title="Game of WAR" Height="520" Width="499">
 
 	<Border BorderBrush="Black"
 			BorderThickness="1">
 		<StackPanel>
 			<StackPanel.Resources>
 				<Style x:Key="PlayerStyle" TargetType="Grid">
-					<Setter Property="Height" Value="170" />
+					<Setter Property="Height" Value="150" />
 				</Style>
 				<Style x:Key="PanelStyle" TargetType="Grid">
-					<Setter Property="Height" Value="130" />
+					<Setter Property="Height" Value="167" />
 				</Style>
 				<Style TargetType="TextBox">
 					<Setter Property="BorderBrush" Value="Black"/>
@@ -26,13 +26,47 @@
 					<Setter Property="Height" Value="30" />
 				</Style>
 			</StackPanel.Resources>
-			<!--Panel for Player1's data -->
+            <Menu Background="White"
+		VerticalAlignment="Top"
+		Grid.ColumnSpan="4"
+		FontSize="14"
+		Height="22"
+		Panel.ZIndex="10" Margin="0,0,0.334,0">
+                <!--<MenuItem Header="_File"-->
+                <!--Width="50">-->
+                <!--<MenuItem Header="_Open"-->
+                <!--Click="Clicked_Open"/>-->
+                <!--<MenuItem Header="_Save"
+				Clicked="Clicked_Save" />-->
+                <!--<MenuItem Header="Save_As..."
+				Click="Clicked_SaveAs" />-->
+                <MenuItem Header="_Close"
+				Click="Clicked_Close"/>
+                <!--</MenuItem>-->
+            </Menu>
+            <!--Panel for Player1's data -->
 			<Grid x:Name="Player1Panel"
 						Background="LightGray"
 						Style="{StaticResource PlayerStyle}">
 				<TextBox x:Name="Player1NameBox" 
 						 Text="Player 1" 
-						 Margin="10,10,381.2,130"/>
+						 Margin="52,10,340,110"/>
+                <Label Content="Cards Left:"
+                       FontSize="20"
+                       HorizontalAlignment="Left" 
+                       Margin="50,45,0,0" 
+                       VerticalAlignment="Top"/>
+                <Label Content="#"
+                       Name="P1Left"
+                       FontSize="20" 
+                       Margin="158,45,270,67"
+                       />
+                <Button Content="Next Round"
+                            Width="75"
+                            Height="75" 
+                            Background="Crimson"
+                            Margin="337,29,80,46"
+                            />
 
 			</Grid>
 
@@ -41,9 +75,27 @@
 					BorderThickness="1.5">
 				<Grid x:Name="CenterPanel"
 							Style="{StaticResource PanelStyle}">
-					
-				
-				</Grid>
+
+                    <Label Content="Card"
+                           Name="p1_Card"
+                            Width="60" 
+                            Height="80"
+                            BorderBrush="Black"
+                            BorderThickness="2"
+                            Margin="140,46,299,46"
+                            />
+
+                    <Label Content="Card"
+                            Name="p2_Card"
+                            Width="60" 
+                            Height="80"
+                            BorderBrush="Black"
+                            BorderThickness="2"
+                            Margin="287,46,152,46"
+                            />
+
+
+                </Grid>
 			</Border>
 
 			<!--Panel for Player1's data-->
@@ -52,8 +104,27 @@
 					Style="{StaticResource PlayerStyle}">
 				<TextBox x:Name="Player2NameBox" 
 						 Text="Player 2" 
-						Margin="10,10,381.2,130"/>
-			</Grid>
+						Margin="310,10,82,110"/>
+                
+                
+                <Label Content="Cards Left:"
+                       FontSize="20"
+                       HorizontalAlignment="Left" 
+                       Margin="308,45,0,0" 
+                       VerticalAlignment="Top"/>
+                <Label Content="#"
+                       Name="P2Left"
+                       FontSize="20" 
+                       Margin="410,45,18,67"
+                       />
+                    <Button Content="Next Round"
+                            Click="NextTurn_Clicked"
+                            Width="75"
+                            Height="75" 
+                            Background="Crimson"
+                            Margin="76,38,340,38"
+                            />
+            </Grid>
 
 		</StackPanel>
 	</Border>
